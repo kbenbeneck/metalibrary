@@ -1,0 +1,35 @@
+<%= form_for @artist do |f| %>
+
+<h3>Artist Info:</h3>
+<div>
+    <p> Select Artist:</p>
+    <%= select_tag(:artist_id, options_for_select(@artist_options)) %>
+  
+
+    <p> Or create new Artist</p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :origin %>
+    <%= f.text_field :origin %>
+    <%= f.label :born %>
+    <%= f.text_field :born %>
+</div>
+
+<h3>Album Info:</h3>
+
+<div>
+    
+    <%= f.fields_for :albums, @album do |af| %>
+    <%= af.label :title %>
+    <%= af.text_field :title %>
+    <%= af.label :year %>
+    <%= af.text_field :year %>
+    <%= af.label :genre %>
+    <%= af.text_field :genre %>
+    
+</div>
+    <% end %>
+    <br>
+    <%= f.submit "Add to collection" %>
+<% end %>

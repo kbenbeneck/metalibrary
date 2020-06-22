@@ -1,0 +1,10 @@
+
+<% @albums.each do |album| %>
+    <li><strong><%= link_to album.title, artist_album_path(album.artist.id, album) %></strong></li>
+    <li><%= link_to album.artist.name, album.artist%></li>
+    <li><%= album.genre%></li>
+    <li><%= album.year%></li>
+    <hr>
+
+<% end %>
+

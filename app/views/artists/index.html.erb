@@ -1,0 +1,16 @@
+<h1>Artists:</h1>
+<hr>
+<% current_user.albums.uniq{|album| album.artist_id}.each do |album| %>
+    <li><strong><%= link_to album.artist.name, album.artist%></strong></li>
+    <% album.artist.albums.each do |a| %>
+  
+    <div>  
+        <li><%= link_to a.title, artist_album_path(a.artist.id, a) %></li>
+        <li><%= album.year%></li>
+        <li><%= album.genre%></li>
+    </div>
+
+    <% end %>
+
+    <hr>
+<% end %>

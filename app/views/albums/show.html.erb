@@ -1,0 +1,10 @@
+<%= form_with(model: [ @artist, @album ], local: true) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :year %>
+    <%= f.text_field :year %>
+    <%= f.label :genre %>
+    <%= f.text_field :genre %>   
+    <%= f.submit %>
+<% end %>
+<p><%= link_to "Delet album", artist_album_path(@artist, @album), method: :delete %></p>

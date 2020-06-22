@@ -1,0 +1,17 @@
+
+<hr>
+
+<% if @artist.albums.any? %>
+
+<h2>Albums by <%= @artist.name %>:</h2>
+<hr>
+
+    <%= render @artist.albums %>
+<% end %>
+<hr>
+
+<h2>Add an album:</h2>
+<%= render 'albums/form', album: @artist.albums.build %>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
