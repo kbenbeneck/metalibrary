@@ -12,9 +12,9 @@
             <li><%= link_to "Login", new_user_session_path %></li>
         <% else %>
             <li><%= link_to "Logout", destroy_user_session_path, method: "delete" %></li>
-            <li><%= link_to "Album Collection", albums_path %></li>
-            <li><%= link_to "Artists Collection", artists_path %></li>
-            <li><%= link_to "Add Album", new_artist_path %></li>
+            <li><%= link_to "Your Albums", albums_path %></li>
+            <li><%= link_to "Your Artists via Albums", artists_path %></li>
+            <li><%= link_to "Add Music", new_artist_path %></li>
             <li><%= current_user.email %></li>
         <% end %>
     </ul>
