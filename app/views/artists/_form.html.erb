@@ -2,11 +2,7 @@
 
 <h3>Artist Info:</h3>
 <div>
-    <p> Select Artist:</p>
-    <%= select_tag(:artist_id, options_for_select(@artist_options)) %>
-  
 
-    <p> Or create new Artist</p>
     <%= f.label :name %>
     <%= f.text_field :name %>
 
