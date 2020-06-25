@@ -17,7 +17,7 @@ class AlbumsController < ApplicationController
     end
 
     def create
-        binding.pry
+     
         @artist = Artist.find_by_id(params[:artist_id])
         @album = @artist.albums.create(album_params.merge(user_id: current_user.id))
         
