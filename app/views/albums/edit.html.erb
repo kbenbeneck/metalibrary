@@ -1,3 +1,13 @@
 <p>Editing <%= @album.title %></p>
 
+<% if @album %>
+    <% if @album.errors.any? %>
+    <div id="error_explanation">
+      <% @album.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+<% end %>
 <%= render 'albums/form', album: @album %>

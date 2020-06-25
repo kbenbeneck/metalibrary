@@ -1,3 +1,4 @@
+
 <%= form_with(model: [ @artist, @album ], local: true) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -8,3 +9,4 @@
     <%= f.submit %>
 <% end %>
 <p><%= link_to "Delet album", artist_album_path(@artist, @album), method: :delete %></p>
+<p><%= link_to "Add to your albums", </p>

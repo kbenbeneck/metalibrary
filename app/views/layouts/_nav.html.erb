@@ -13,6 +13,7 @@
         <% else %>
             <li><%= link_to "Logout", destroy_user_session_path, method: "delete" %></li>
             <li><%= link_to "Your Albums", albums_path %></li>
+            <li><%= link_to "Prog Rock", prog_rock_path %></li>
             <li><%= link_to "Your Artists via Albums", artists_path %></li>
             <li><%= link_to "Add Music", new_artist_path %></li>
             <li><%= current_user.email %></li>

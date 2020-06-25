@@ -1,13 +1,24 @@
 
+<% if @album %>
+    <% if @album.errors.any? %>
+    <div id="error_explanation">
+      <% @album.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+<% end %>
 <hr>
 
-<% if @artist.albums.any? %>
 
 <h2>Albums by <%= @artist.name %>:</h2>
-<hr>
 
+  
+
+<hr>
     <%= render @artist.albums %>
-<% end %>
+
 <hr>
 
 <h2>Add an album:</h2>

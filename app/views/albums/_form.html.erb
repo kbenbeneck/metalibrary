@@ -1,9 +1,10 @@
+
 <%= form_with(model: [ @artist, album ], local: true) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
     <br>
     <%= f.label :year %>
-    <%= f.text_field :year %>
+    <%= f.number_field :year %>
     <br>
     <%= f.label :genre %>
     <%= f.text_field :genre %>  

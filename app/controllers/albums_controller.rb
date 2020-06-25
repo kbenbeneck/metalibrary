@@ -9,8 +9,7 @@ class AlbumsController < ApplicationController
     def show
         if params[:artist_id]
             set_artist
-            set_album
-            
+            set_album 
         end     
     end
     
@@ -18,15 +17,15 @@ class AlbumsController < ApplicationController
     end
 
     def create
-    
-        @artist = Artist.find(params[:artist_id])
-        @album = @artist.albums.create(album_params)
-        @album.user_id = current_user.id
-        if @album.save
+        binding.pry
+        @artist = Artist.find_by_id(params[:artist_id])
+        @album = @artist.albums.create(album_params.merge(user_id: current_user.id))
+        
+        if @album.valid?
             redirect_to @artist, notice: 'Album was successfully created.'
         else
-            
-            render 'albums/form', album: @artist.albums.build
+      
+            render template: "artists/show"
         end
     end
 
@@ -39,8 +38,13 @@ class AlbumsController < ApplicationController
     end
 
     def destroy
-        @album.destroy
+        @album.delete
         redirect_to @artist, notice: 'Album was successfully destroyed.'
+    end
+
+    def prog_rock
+        
+        @albums = Album.prog_rock
     end
 
     private

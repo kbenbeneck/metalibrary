@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   resources :artists do
     resources :albums
   end
-  
   resources :albums, only: [:index]
+  get 'albums/prog_rock', to: 'albums#prog_rock', as: :prog_rock
   root to: 'application#welcome'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
