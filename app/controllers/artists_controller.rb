@@ -9,17 +9,11 @@ class ArtistsController < ApplicationController
     end
     
     def new
-        @artist = Artist.new
-    
+        @artist = Artist.new    
         @album = @artist.albums.build
-    
     end
-    
-    # def edit
-    # end
 
     def create 
-    
         if params[:artist][:name]
             @artist = Artist.find_or_create_by!(name: artist_params[:name])
             if @artist.save!
@@ -27,33 +21,15 @@ class ArtistsController < ApplicationController
             else
                 render 'new'
             end
-        else
-            
+        else    
            render 'new'
         end
     end
-
-    # def update
-        
-    #     if @artist.update(artist_params)
-    #         redirect_to @artist, notice: 'Artist was successfully updated.'
-    #     else
-    #         render :edit
-    #     end
-    # end
-
-    # def destroy
-
-    #     @artist.destroy
-    #     redirect_to artists_path, notice: "Artist was successfully destroyed."
-    # end
 
     private
     
     def set_artist
         @artist = Artist.find(params[:id])
-        
-
     end
 
     def artist_params
