@@ -3,7 +3,8 @@ class AlbumsController < ApplicationController
    before_action :set_album, only: [:edit, :update, :destroy]
 
     def index
-        @albums = current_user.albums    
+        @albums = current_user.albums.sort_by(&:title)   
+
     end
 
     def show
@@ -24,7 +25,6 @@ class AlbumsController < ApplicationController
         if @album.valid?
             redirect_to @artist, notice: 'Album was successfully created.'
         else
-      
             render template: "artists/show"
         end
     end
@@ -38,12 +38,15 @@ class AlbumsController < ApplicationController
     end
 
     def destroy
-        @album.delete
-        redirect_to @artist, notice: 'Album was successfully destroyed.'
+        if @album.user_id == current_user.id
+            @album.delete
+            redirect_to @artist, notice: 'Album was successfully destroyed.'
+        else
+            redirect_to @album
+        end
     end
 
-    def prog_rock
-        
+    def prog_rock   
         @albums = Album.prog_rock
     end
 
