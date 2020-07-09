@@ -1,11 +1,11 @@
-<% if album.user_id = current_user.id %>
-    <% if album.id %>
-<p><%= link_to album.title, artist_album_path(album.artist_id, album) %> | <%= album.year %> |  </p>
+<% if album.user_id == current_user.id %>
+   
+    <p><%= link_to album.title, artist_album_path(album.artist_id, album) %> | <%= album.year %> |  </p>
 
 <p>Edit this album:</p>
 
-<%= render 'albums/form', album: album %>
+    <%= render 'albums/form', album: album %>
 
-<p><%= link_to "Delet album", artist_album_path(@artist, album), method: :delete %></p>
-    <% end %>
+    <p><%= link_to "Delet album", artist_album_path(@artist, album), method: :delete %></p>
+   
 <% end %>
